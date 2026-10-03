@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wildan Yulianto — Portofolio</title>
+
+<style>
+/* ============================================
+   RESET & VARIABEL WARNA KALEM
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --cream: #f5f1ea;
+    --cream-2: #ede7dc;
+    --white: #ffffff;
+    --beige: #e8e2d5;
+    --brown: #8b7355;
+    --brown-dark: #6d5a42;
+    --olive: #5a6b5d;
+    --text: #2c2c2c;
+    --text-mid: #7a7a7a;
+    --text-light: #a8a8a8;
+    --line: #d4c9b8;
+    --shadow: 0 4px 20px rgba(139, 115, 85, 0.08);
+    --shadow-lg: 0 12px 40px rgba(139, 115, 85, 0.15);
+}
+
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ============================================
+   BACKGROUND DEKORASI
+   ============================================ */
+.bg-decoration {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    animation: float 20s ease-in-out infinite;
+}
+
+.circle-1 {
+    width: 400px; height: 400px;
+    background: var(--beige);
+    top: -100px; left: -100px;
+}
+
+.circle-2 {
+    width: 300px; height: 300px;
+    background: #d8cfc0;
+    bottom: -80px; right: -80px;
+    animation-delay: -7s;
+}
+
+.circle-3 {
+    width: 250px; height: 250px;
+    background: #cfc7b4;
+    top: 50%; right: 10%;
+    animation-delay: -14s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    33%      { transform: translate(30px,-30px) scale(1.05); }
+    66%      { transform: translate(-20px,20px) scale(0.95); }
+}
+
+/* ============================================
+   CONTAINER UTAMA
+   ============================================ */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 30px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================
+   HEADER / PROFIL
+   ============================================ */
+.profile-header {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 50px;
+    align-items: center;
+    background: var(--white);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    margin-bottom: 40px;
+    border: 1px solid var(--line);
+    animation: fadeInUp 0.8s ease;
+}
+
+.foto-wrapper {
+    position: relative;
+    width: 230px;
+    height: 230px;
+    justify-self: center;
+}
+
+.foto-profil {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 10px 30px rgba(139, 115, 85, 0.25);
+    border: 6px solid var(--white);
+    transition: transform 0.5s ease;
+}
+
+.foto-profil:hover {
+    transform: scale(1.05);
+}
+
+.foto-ring {
+    position: absolute;
+    inset: -12px;
+    border-radius: 50%;
+    border: 2px dashed var(--brown);
+    opacity: 0.5;
+    animation: rotate 30s linear infinite;
+    z-index: 1;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.label-label {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: var(--brown);
+    font-weight: 600;
+}
+
+.nama {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.1;
+    margin: 4px 0;
+}
+
+.divider {
+    width: 60px;
+    height: 3px;
+    background: var(--brown);
+    margin: 8px 0 12px;
+    border-radius: 2px;
+}
+
+.tagline {
+    font-style: italic;
+    color: var(--olive);
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 18px;
+    margin-top: 8px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: var(--cream);
+    border-radius: 10px;
+    border-left: 3px solid var(--brown);
+    transition: all 0.3s ease;
+}
+
+.info-item:hover {
+    background: var(--cream-2);
+    transform: translateX(4px);
+}
+
+.info-icon {
+    font-size: 1.3rem;
+}
+
+.info-label {
+    display: block;
+    font-size: 0.68rem;
+    color: var(--text-light);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.info-value {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text);
+    font-weight: 500;
+}
+
+/* ============================================
+   SECTION UMUM
+   ============================================ */
+.section {
+    margin-bottom: 40px;
+    animation: fadeInUp 0.8s ease both;
+}
+
+.section:nth-child(2) { animation-delay: 0.2s; }
+.section:nth-child(3) { animation-delay: 0.4s; }
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding-left: 8px;
+}
+
+.section-icon {
+    color: var(--brown);
+    font-size: 1.2rem;
+}
+
+.section-title h2 {
+    font-family: Georgia, serif;
+    font-size: 1.8rem;
+    color: var(--text);
+    font-weight: 700;
+}
+
+.section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--line), transparent);
+    margin-left: 10px;
+}
+
+/* ============================================
+   SKILLS
+   ============================================ */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.skill-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--line);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 4px;
+    background: linear-gradient(to right, var(--brown), var(--olive));
+}
+
+.skill-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+.skill-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.skill-icon {
+    font-size: 1.4rem;
+    background: var(--cream);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.skill-header h3 {
+    font-size: 1.05rem;
+    color: var(--text);
+    font-weight: 600;
+    flex: 1;
+}
+
+.skill-percent {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--brown);
+    background: var(--cream);
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.skill-bar {
+    height: 8px;
+    background: var(--cream-2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.skill-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--brown), var(--brown-dark));
+    border-radius: 10px;
+    width: 0;
+    transition: width 1.5s ease-out;
+}
+
+.skill-fill.fill-active {
+    /* Diisi lewat JS */
+}
+
+.skill-fill-2 {
+    background: linear-gradient(to right, var(--olive), #4a5a4d);
+}
+
+.skill-list {
+    list-style: none;
+}
+
+.skill-list li {
+    font-size: 0.85rem;
+    color: var(--text-mid);
+    padding: 6px 0 6px 22px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.skill-list li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: var(--brown);
+    font-size: 0.7rem;
+    top: 8px;
+}
+
+/* ============================================
+   ABOUT
+   ============================================ */
+.about-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--brown);
+}
+
+.about-card p {
+    color: var(--text-mid);
+    font-size: 0.95rem;
+    margin-bottom: 14px;
+    line-height: 1.8;
+}
+
+.about-card p:last-child {
+    margin-bottom: 0;
+}
+
+.about-card strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.about-card em {
+    color: var(--olive);
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+    text-align: center;
+    padding: 40px 0 20px;
+    margin-top: 20px;
+}
+
+.footer-line {
+    width: 60px;
+    height: 2px;
+    background: var(--brown);
+    margin: 0 auto 20px;
+    border-radius: 2px;
+}
+
+.footer p {
+    color: var(--text-mid);
+    font-size: 0.85rem;
+}
+
+.footer strong {
+    color: var(--text);
+}
+
+.footer-sub {
+    margin-top: 6px;
+    font-size: 0.75rem !important;
+    color: var(--text-light) !important;
+    font-style: italic;
+}
+
+/* ============================================
+   ANIMASI
+   ============================================ */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .container { padding: 30px 20px; }
+
+    .profile-header {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 30px 20px;
+        gap: 30px;
+    }
+
+    .foto-wrapper { width: 180px; height: 180px; }
+
+    .nama { font-size: 2rem; }
+
+    .divider { margin: 8px auto 12px; }
+
+    .info-grid { grid-template-columns: 1fr; }
+
+    .skills-grid { grid-template-columns: 1fr; }
+
+    .about-card { padding: 25px; }
+
+    .section-title h2 { font-size: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Background dekorasi -->
+<div class="bg-decoration">
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+</div>
+
+<!-- Konten Utama -->
+<main class="container">
+
+    <!-- ===== HEADER / PROFIL ===== -->
+    <header class="profile-header">
+        <div class="foto-wrapper">
+            <img src="foto.jpg" alt="Foto Wildan Yulianto" class="foto-profil" id="fotoProfil">
+            <div class="foto-ring"></div>
+        </div>
+
+        <div class="profile-info">
+            <span class="label-label">PORTOFOLIO PRIBADI</span>
+            <h1 class="nama">Wildan Yulianto</h1>
+            <div class="divider"></div>
+            <p class="tagline">"Kreatif dalam Desain, Logis dalam Kode"</p>
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-icon">🎂</span>
+                    <div>
+                        <span class="info-label">Umur</span>
+                        <span class="info-value">23 Tahun</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">📍</span>
+                    <div>
+                        <span class="info-label">Domisili</span>
+                        <span class="info-value">Bogor, Jawa Barat</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">🍽️</span>
+                    <div>
+                        <span class="info-label">Hobi</span>
+                        <span class="info-value">Kuliner / Makan</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">✂️</span>
+                    <div>
+                        <span class="info-label">Keahlian</span>
+                        <span class="info-value">Fashion & Coding</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== KEAHLIAN ===== -->
+    <section class="section">
+        <div class="section-title">
+            <span class="section-icon">✦</span>
+            <h2>Keahlian</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="skills-grid">
+
+            <!-- Fashion Design -->
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-icon">✂️</span>
+                    <h3>Fashion Design</h3>
+                    <span class="skill-percent">85%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-fill" data-width="85%"></div>
+                </div>
+                <ul class="skill-list">
+                    <li>Merancang konsep & desain pakaian</li>
+                    <li>Memahami tren fashion & estetika visual</li>
+                    <li>Membuat sketsa dan pola dasar</li>
+                </ul>
+            </div>
+
+            <!-- Coding -->
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-icon">💻</span>
+                    <h3>Coding (Basic)</h3>
+                    <span class="skill-percent">60%</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-fill skill-fill-2" data-width="60%"></div>
+                </div>
+                <ul class="skill-list">
+                    <li>Dasar pemrograman Python & HTML</li>
+                    <li>Logika pemrograman dan algoritma</li>
+                    <li>Mampu membangun web sederhana</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== TENTANG SAYA ===== -->
+    <section class="section">
+        <div class="section-title">
+            <span class="section-icon">❖</span>
+            <h2>Tentang Saya</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="about-card">
+            <p>
+                Saya <strong>Wildan Yulianto</strong>, 23 tahun, tinggal di <strong>Bogor, Jawa Barat</strong>.
+                Saya memiliki minat besar pada dunia <em>fashion design</em> dan senang menuangkan
+                ide kreatif ke dalam rancangan visual yang estetis.
+            </p>
+            <p>
+                Selain itu, saya juga mempelajari dasar-dasar <em>coding</em> sebagai cara untuk
+                mengasah logika dan berpikir sistematis. Bagi saya, <strong>kreativitas</strong> dan
+                <strong>teknologi</strong> adalah dua hal yang bisa berjalan berdampingan dengan indah.
+            </p>
+            <p>
+                Di waktu luang, saya senang <em>mencari kuliner</em> — karena bagi saya, makanan
+                bukan hanya soal rasa, tapi juga seni dan pengalaman.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-line"></div>
+        <p>© 2024 <strong>Wildan Yulianto</strong> — Portofolio Pribadi</p>
+        <p class="footer-sub">Dibuat dengan ❤️ dan secangkir kopi</p>
+    </footer>
+
+</main>
+
+<script>
+/* ============================================
+   ANIMASI PROGRESS BAR SAAT SCROLL
+   ============================================ */
+const skillFills = document.querySelectorAll('.skill-fill');
+
+function animateSkills() {
+    skillFills.forEach(fill => {
+        const rect = fill.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight - 50;
+        if (inView && fill.style.width === '0px' || fill.style.width === '') {
+            const targetWidth = fill.getAttribute('data-width');
+            if (targetWidth) {
+                setTimeout(() => {
+                    fill.style.width = targetWidth;
+                }, 200);
+            }
+        }
+    });
+}
+
+window.addEventListener('scroll', animateSkills);
+window.addEventListener('load', () => {
+    setTimeout(animateSkills, 300);
+});
+
+/* ============================================
+   EFEK 3D TILT PADA FOTO
+   ============================================ */
+const foto = document.getElementById('fotoProfil');
+if (foto) {
+    foto.addEventListener('mousemove', (e) => {
+        const rect = foto.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+        foto.style.transform = `
+            perspective(1000px)
+            rotateY(${x * 15}deg)
+            rotateX(${-y * 15}deg)
+            scale(1.05)
+        `;
+    });
+
+    foto.addEventListener('mouseleave', () => {
+        foto.style.transform = 'perspective(1000px) rotateY(0) rotateX(0) scale(1)';
+    });
+
+    // Jika foto tidak ditemukan, tampilkan placeholder
+    foto.addEventListener('error', () => {
+        foto.style.display = 'none';
+        const wrapper = foto.parentElement;
+        const placeholder = document.createElement('div');
+        placeholder.style.cssText = `
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e8e2d5, #d4c9b8);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 4rem; color: #8b7355;
+            border: 6px solid #fff;
+            box-shadow: 0 10px 30px rgba(139,115,85,0.25);
+        `;
+        placeholder.textContent = '👤';
+        wrapper.insertBefore(placeholder, foto);
+    });
+}
+
+/* ============================================
+   EFEK FADE-IN SECTION SAAT SCROLL
+   ============================================ */
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.section').forEach(section => {
+    observer.observe(section);
+});
+
+/* ============================================
+   LOG KE CONSOLE
+   ============================================ */
+console.log('%c✨ Portofolio Wildan Yulianto', 
+    'color: #8b7355; font-size: 16px; font-weight: bold;');
+console.log('%cTerima kasih sudah mampir!', 
+    'color: #5a6b5d; font-size: 12px;');
+</script>
+
+</body>
+</html>
